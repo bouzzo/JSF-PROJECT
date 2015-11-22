@@ -40,6 +40,31 @@ public class GlassesBean implements Serializable {
 			System.out.println(ex.getMessage());
 		}
 		List<Glasses> glassesl = new ArrayList<Glasses>();
+		
+		
+		PreparedStatement prepstat = connect
+				.prepareStatement("select gid, gbrand, gcolor from glasses");
+		ResultSet result = prepstat.executeQuery();
+
+		while (result.next()) {
+
+			Glasses glasses = new Glasses();
+			glasses.setGid(result.getInt("gid"));
+			glasses.setGbrand(result.getString("gbrand"));
+			glasses.setGcolor(result.getString("gcolor"));
+			
+
+			glassesl.add(glasses);
+
+		}
+
+		
+		result.close();
+		prepstat.close();
+		connect.close();
+		
+		
+		
 		return glassesl;
 	}
 
