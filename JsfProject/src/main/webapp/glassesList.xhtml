@@ -10,23 +10,25 @@
 
 </h:head>
 <h:body>
-<p:spinner />  
+
 	<h2>Glasses Details</h2>
-	<h:dataTable value="#{glassesBean.glassesL}" var="glasses" border="1">
-		<h:column>
-			<f:facet name="header">Glasses ID</f:facet>
-         #{glasses.gid}
-      </h:column>
-		<h:column>
-			<f:facet name="header">Glasses Brand</f:facet>
-         #{glasses.gbrand}
-      </h:column>
-		<h:column>
-			<f:facet name="header">Glasses Color</f:facet>
-           #{glasses.gcolor}
-       </h:column>
-		
-		
-	</h:dataTable>
+	
+	
+	<p:dataTable value="#{glassesBean.glassesL}" var="glasses">
+    <p:column headerText="Id">
+        <h:outputText value="#{glasses.gid}" />
+    </p:column>
+ 
+    <p:column headerText="Brand">
+        <h:outputText value="#{glasses.gbrand}" />
+    </p:column>
+ 
+    <p:column headerText="Color">
+        <h:outputText value="#{glasses.gcolor}" />
+    </p:column>
+ 
+    
+</p:dataTable>
+	
 </h:body>
 </html>
